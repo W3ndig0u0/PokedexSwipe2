@@ -123,14 +123,18 @@ function fetchPokemon() {
     typeImg1.setAttribute('data-tooltip', pokemonType1);
     typeImg1.alt = pokemonType1;
     
+    if (pokemonType2 !== undefined) {
     const typeImg2 = document.createElement('img');
     typeImg2.className = "typeImg type2";
     typeImg2.src = pokemonTypeImg2;
     typeImg2.setAttribute('data-tooltip', pokemonType2);
     typeImg2.alt = pokemonType2;
+
+    
+    typesContainer.appendChild(typeImg2);
+    }
     
     typesContainer.appendChild(typeImg1);
-    typesContainer.appendChild(typeImg2);
     pokemonStatsContainer.appendChild(pokemonIdElement);
     pokemonStatsContainer.appendChild(pokemonNameElement);
     pokemonStatsContainer.appendChild(typesContainer);
