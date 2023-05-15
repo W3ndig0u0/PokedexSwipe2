@@ -1,0 +1,32 @@
+@import url("https://fonts.googleapis.com/css?family=Lato");
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  user-select: none;
+  min-height: 100vh;
+  margin: 0;
+  font-family: "Lato", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto"
+}
+
+button {
+  background-color: dimgray;
+  border: none;
+  color: white;
+  border: none;
+  padding: 14px 30px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 18px;
+  border-radius: 30px;
+  margin: 8px 12px;
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.8;
+  transition: 300ms;
+}
