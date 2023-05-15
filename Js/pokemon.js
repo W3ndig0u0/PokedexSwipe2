@@ -42,15 +42,17 @@ const typeImg = {
 
 
 function fetchPokemon() {
-  let url = "https://pokeapi.co/api/v2/pokemon/";
-  let random = Math.floor(Math.random() * 1010 + 1);
-  let pokemonUrl = url + random;
+  for (let i = 0; i < 5; i++) {
+    let url = "https://pokeapi.co/api/v2/pokemon/";
+    let random = Math.floor(Math.random() * 1010 + 1);
+    let pokemonUrl = url + random;
 
-  fetch(pokemonUrl)
-    .then(response => response.json())
-    .then(result => {
-      CreatePokemonCard(result);
-    });
+    fetch(pokemonUrl)
+      .then(response => response.json())
+      .then(result => {
+        CreatePokemonCard(result);
+      });
+  }
 }
 
   
@@ -76,16 +78,12 @@ function fetchPokemon() {
       pokemonTypeImg2 = typeImg[(res?.types[1]?.type.name)];
     }
 
-    PokemonCard(color, color2 , pokemonId , pokemonName, pokemonTypeImg1 , pokemonTypeImg2, pokemonType1 ,pokemonType2)
+    PokemonCard(color, color2, pokemonId, pokemonName, pokemonTypeImg1, pokemonTypeImg2, pokemonType1, pokemonType2);
+
   }
   
 
   function PokemonCard(color, color2, pokemonId, pokemonName, pokemonTypeImg1, pokemonTypeImg2, pokemonType1, pokemonType2){
-    
-    const existingCard = document.querySelector('.pokemonCardContainer');
-    if (existingCard) {
-      existingCard.remove();
-    }
     
     const pokemonCard = document.createElement('div');
     pokemonCard.className = "pokemonCardContainer";
@@ -141,11 +139,11 @@ function fetchPokemon() {
     pokemonCard.appendChild(pokemonStatsContainer);
     
     const pokemonsContainer = document.querySelector('.pokemons');
-    pokemonsContainer.innerHTML = '';
     pokemonsContainer.appendChild(pokemonCard);
     
     pokemonCard.innerHTML = pokemonCardInnerHTML;
     document.querySelector(".pokemons")?.appendChild(pokemonCard)
+
   }
   
   fetchPokemon();
